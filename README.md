@@ -1,14 +1,25 @@
 # arm-tiny-yolo
 A microservice for Raspberry PI running a Tiny Yolo v3 neural network to detect object in pictures 
 
+Pull pre-built image:
+```bash
+docker pull piaoliangkb/x86-tiny-yolo
+docker tag piaoliangkb/x86-tiny-yolo x86-tiny-yolo
+```
+
+Build Docker image for x86-64 machine from source:
+```bash
+docker build docker build -t x86-tiny-yolo:latest .
+```
+
 To start the container with default config :
 ```bash
-docker run -d --name arm-tiny-yolo -p 5000:5000 arm-tiny-yolo
+docker run -d --name x86-tiny-yolo -p 5000:5000 x86-tiny-yolo
 ```
 
 Alternatively you can specify a conf diretory so you can change model weights easily :
 ```bash
-docker run -d --name arm-tiny-yolo -v <conf_dir>:/conf -p 5000:5000 arm-tiny-yolo
+docker run -d --name x86-tiny-yolo -v <conf_dir>:/conf -p 5000:5000 x86-tiny-yolo
 ```
 
 To test an image with the Yolo WebService : 
